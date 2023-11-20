@@ -14,10 +14,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Dumping data for table car_rent.cars: ~1 rows (approximately)
+-- Dumping data for table car_rent.cars: ~2 rows (approximately)
 DELETE FROM `cars`;
 INSERT INTO `cars` (`id`, `plat_number`, `merk`, `model`, `color`, `rental_rate`, `created_at`, `updated_at`) VALUES
-	(1, 'KH2234YMA', 'Suzuki', 'Suzuki R4', 'Merah', 500000.00, '2023-11-20 00:15:11', '2023-11-20 00:21:42');
+	(1, 'KH2234YMA', 'Suzuki', 'Suzuki R4', 'Merah', 500000.00, '2023-11-20 00:15:11', '2023-11-20 00:21:42'),
+	(2, 'KH2234YMB', 'Suzuki', 'Suzuki R4', 'Merah', 500000.00, '2023-11-20 00:15:11', '2023-11-20 00:21:42');
 
 -- Dumping data for table car_rent.failed_jobs: ~0 rows (approximately)
 DELETE FROM `failed_jobs`;
@@ -46,7 +47,7 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 -- Dumping data for table car_rent.password_resets: ~0 rows (approximately)
 DELETE FROM `password_resets`;
 
--- Dumping data for table car_rent.permissions: ~29 rows (approximately)
+-- Dumping data for table car_rent.permissions: ~35 rows (approximately)
 DELETE FROM `permissions`;
 INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 	(1, 'view side_bar_menus', 'web', '2023-08-28 23:30:08', '2023-08-28 23:30:08'),
@@ -77,15 +78,19 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 	(26, 'update kendaraan', 'web', '2023-11-19 23:25:37', '2023-11-19 23:25:37'),
 	(27, 'delete kendaraan', 'web', '2023-11-19 23:25:37', '2023-11-19 23:25:37'),
 	(28, 'rent kendaraan', 'web', '2023-11-20 00:22:58', '2023-11-20 00:22:58'),
-	(29, 'return kendaraan', 'web', '2023-11-20 00:23:16', '2023-11-20 00:23:16');
+	(29, 'return kendaraan', 'web', '2023-11-20 00:23:16', '2023-11-20 00:23:16'),
+	(30, 'view transaksi-rental', 'web', '2023-11-20 02:24:28', '2023-11-20 02:24:28'),
+	(31, 'create transaksi-rental', 'web', '2023-11-20 02:24:28', '2023-11-20 02:24:28'),
+	(32, 'detail transaksi-rental', 'web', '2023-11-20 02:24:28', '2023-11-20 02:24:28'),
+	(33, 'update transaksi-rental', 'web', '2023-11-20 02:24:28', '2023-11-20 02:24:28'),
+	(34, 'delete transaksi-rental', 'web', '2023-11-20 02:24:28', '2023-11-20 02:24:28'),
+	(35, 'return transaksi-rental', 'web', '2023-11-20 02:25:42', '2023-11-20 02:25:42');
 
 -- Dumping data for table car_rent.personal_access_tokens: ~0 rows (approximately)
 DELETE FROM `personal_access_tokens`;
 
 -- Dumping data for table car_rent.rents: ~0 rows (approximately)
 DELETE FROM `rents`;
-INSERT INTO `rents` (`id`, `car_id`, `user_id`, `rent_start_date`, `rent_end_date`, `status`, `total_rent_fee`, `date_of_return`, `late_fee`, `created_at`, `updated_at`) VALUES
-	(1, 1, 1, '2023-11-20', '2023-11-21', 'ACTIVE', 100000.000000, '0000-00-00', 0.00, NULL, NULL);
 
 -- Dumping data for table car_rent.roles: ~2 rows (approximately)
 DELETE FROM `roles`;
@@ -93,7 +98,7 @@ INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VAL
 	(1, 'Admin', 'web', '2023-08-28 23:30:08', '2023-08-28 23:30:08'),
 	(2, 'Member', 'web', '2023-11-19 23:14:36', '2023-11-19 23:14:36');
 
--- Dumping data for table car_rent.role_has_permissions: ~30 rows (approximately)
+-- Dumping data for table car_rent.role_has_permissions: ~37 rows (approximately)
 DELETE FROM `role_has_permissions`;
 INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(1, 1),
@@ -125,9 +130,16 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(26, 1),
 	(27, 1),
 	(28, 2),
-	(29, 2);
+	(29, 2),
+	(30, 1),
+	(30, 2),
+	(31, 1),
+	(32, 1),
+	(33, 1),
+	(34, 1),
+	(35, 2);
 
--- Dumping data for table car_rent.side_bar_menus: ~6 rows (approximately)
+-- Dumping data for table car_rent.side_bar_menus: ~7 rows (approximately)
 DELETE FROM `side_bar_menus`;
 INSERT INTO `side_bar_menus` (`id`, `title`, `uri`, `icon`, `permission_name`, `header`, `is_has_data_manipulation`, `created_at`, `updated_at`) VALUES
 	(1, 'Menu', 'admin/menu', '<i class="fas fa-bars"></i>', 'view side_bar_menus', NULL, 'YES', '2023-08-29 06:44:08', '2023-08-29 06:44:08'),
@@ -135,13 +147,13 @@ INSERT INTO `side_bar_menus` (`id`, `title`, `uri`, `icon`, `permission_name`, `
 	(3, 'User List', 'admin/user', NULL, 'view users', '2', 'YES', '2023-08-29 06:44:08', '2023-08-29 06:44:08'),
 	(4, 'User Role/Group', 'admin/role', NULL, 'view roles', '2', 'YES', '2023-08-29 06:44:08', '2023-08-29 06:44:08'),
 	(5, 'Permissions', 'admin/permission', NULL, 'view permissions', '2', 'YES', '2023-08-29 06:44:08', '2023-08-29 06:44:08'),
-	(6, 'Kendaraan', 'dashboard/kendaraan', '<i class="fas fa-car"></i>', 'view kendaraan', NULL, 'YES', '2023-11-19 23:25:37', '2023-11-19 23:25:37');
+	(6, 'Kendaraan', 'dashboard/kendaraan', '<i class="fas fa-car"></i>', 'view kendaraan', NULL, 'YES', '2023-11-19 23:25:37', '2023-11-19 23:25:37'),
+	(7, 'Transaksi Rental', 'dashboard/transactions', '<i class="fas fa-file-invoice-dollar"></i>', 'view transaksi-rental', NULL, 'YES', '2023-11-20 02:24:28', '2023-11-20 02:24:28');
 
--- Dumping data for table car_rent.users: ~2 rows (approximately)
+-- Dumping data for table car_rent.users: ~1 rows (approximately)
 DELETE FROM `users`;
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `address`, `sim_number`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(1, 'uadmin', 'admin@gmail.com', NULL, NULL, NULL, NULL, '$2y$10$vbs8rS8Tv5.wb9f.Z1mN5OIMBvk2VESuG/5tKBEgv5RBGQkxU/Eum', NULL, '2023-08-28 23:30:08', '2023-08-28 23:30:08'),
-	(2, 'Samuel Septa Munthe', 'samuelsepta@gmail.com', NULL, NULL, NULL, NULL, '$2y$10$33Ccyp35dIAcYGXeaBlG9uXrdAHRHHF4GmT7NU5xUyopqffjxchoK', NULL, '2023-11-19 23:23:00', '2023-11-19 23:23:00');
+	(1, 'uadmin', 'admin@gmail.com', NULL, NULL, NULL, NULL, '$2y$10$vbs8rS8Tv5.wb9f.Z1mN5OIMBvk2VESuG/5tKBEgv5RBGQkxU/Eum', NULL, '2023-08-28 23:30:08', '2023-08-28 23:30:08');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
